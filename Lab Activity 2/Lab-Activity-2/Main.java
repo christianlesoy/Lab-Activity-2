@@ -1,34 +1,68 @@
-public class Main {
+
+public class Main 
+{
+
+    // This is a single method that can accept any Vehicle subclass
+    public static void printDetails(Vehicle vehicle) 
+    {
+        vehicle.displayInfo();
+
+        System.out.println("Age: " + vehicle.calculateAge());
+        System.out.println("Vintage: " + vehicle.isVintage());
+    }
+
     public static void main(String[] args) 
     {
 
-        Vehicle vehicle1 = new Vehicle();
-        vehicle1.brand = "Toyota";
-        vehicle1.model = "Corolla";
-        vehicle1.year = 2020;
+        // DEMO 1: Parent reference holding a child object
+        System.out.println("=== 1. Parent Reference ===");
 
-        Vehicle vehicle2 = new Vehicle();
-        vehicle2.brand = "Honda";
-        vehicle2.model = "Civic";
-        vehicle2.year = 1995;
-
-        Vehicle vehicle3 = new Vehicle();
-        vehicle3.brand = "Ford";
-        vehicle3.model = "Mustang";
-        vehicle3.year = 2010;
-
-        vehicle1.displayInfo();
-        System.out.println("Age: " + vehicle1.calculateAge());
-        System.out.println("Vintage: " + vehicle1.isVintage());
+        Vehicle vehicle = new Car("Toyota", "Vios", 2026, 4);
+        printDetails(vehicle);
         System.out.println();
 
-        vehicle2.displayInfo();
-        System.out.println("Age: " + vehicle2.calculateAge());
-        System.out.println("Vintage: " + vehicle2.isVintage());
+        // The same Vehicle variable now refers to a Motorcycle
+        vehicle = new Motorcycle("Honda", "XRM", 2015, "Manual");
+        printDetails(vehicle);
         System.out.println();
 
-        vehicle3.displayInfo();
-        System.out.println("Age: " + vehicle3.calculateAge());
-        System.out.println("Vintage: " + vehicle3.isVintage());
+        // The same Vehicle variable now refers to a Truck
+        vehicle = new Truck("Volvo", "FH16", 2022, 10);
+        printDetails(vehicle);
+        System.out.println();
+
+
+        // DEMO 2: One method accepts different subclasses
+        System.out.println("=== 2. Method Parameter ===");
+
+        Car car = new Car("Tesla", "Roadster", 2026, 2);
+        Motorcycle motor = new Motorcycle("Yamaha", "NMAX", 2026, "Automatic");
+        Truck truck = new Truck("Isuzu", "Giga", 2020, 10);
+
+        printDetails(car);
+        System.out.println();
+
+        printDetails(motor);
+        System.out.println();
+
+        printDetails(truck);
+        System.out.println();
+
+
+        // DEMO 3: One array holds different Vehicle subclasses
+        System.out.println("=== 3. Polymorphic Array ===");
+
+        Vehicle[] vehicles = 
+        {
+            new Car("Toyota", "Corolla", 2020, 4),
+            new Motorcycle("Honda", "XRM", 2015, "Manual"),
+            new Truck("Volvo", "FH16", 2022, 10)
+        };
+
+        for (Vehicle currentVehicle : vehicles) 
+        {
+            printDetails(currentVehicle);
+            System.out.println();
+        }
     }
 }

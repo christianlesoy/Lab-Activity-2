@@ -1,20 +1,43 @@
+
 public class Vehicle 
 {
-    String brand;
-    String model;
-    int year;
+    private String brand;
+    private String model;
+    private int year;
 
-    void displayInfo() 
+    public Vehicle(String brand, String model, int year) 
     {
-        System.out.println("Brand: " + brand + ", Model: " + model + ", Year: " + year);
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
     }
 
-    int calculateAge() 
+    public String getBrand() 
+    {
+        return brand;
+    }
+
+    public String getModel() 
+    {
+        return model;
+    }
+
+    public int getYear() 
+    {
+        return year;
+    }
+
+    public void displayInfo() 
+    {
+        System.out.println("Brand: " + brand  + ", Model: " + model + ", Year: " + year);
+    }
+
+    public int calculateAge() 
     {
         return 2026 - year;
     }
 
-    boolean isVintage() 
+    public boolean isVintage() 
     {
         return calculateAge() > 25;
     }
