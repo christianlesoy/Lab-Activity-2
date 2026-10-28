@@ -9,12 +9,15 @@ public class Main
 
         System.out.println("Age: " + vehicle.calculateAge());
         System.out.println("Vintage: " + vehicle.isVintage());
+        vehicle.moveForward();
+        vehicle.moveBackward();
+        vehicle.moveLeft();
+        vehicle.moveRight();
     }
 
     public static void main(String[] args) 
     {
 
-        // DEMO 1: Parent reference holding a child object
         System.out.println("=== 1. Parent Reference ===");
 
         Vehicle vehicle = new Car("Toyota", "Vios", 2026, 4);
@@ -32,7 +35,6 @@ public class Main
         System.out.println();
 
 
-        // DEMO 2: One method accepts different subclasses
         System.out.println("=== 2. Method Parameter ===");
 
         Car car = new Car("Tesla", "Roadster", 2026, 2);
@@ -49,7 +51,6 @@ public class Main
         System.out.println();
 
 
-        // DEMO 3: One array holds different Vehicle subclasses
         System.out.println("=== 3. Polymorphic Array ===");
 
         Vehicle[] vehicles = 
