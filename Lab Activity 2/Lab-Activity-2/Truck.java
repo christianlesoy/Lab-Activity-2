@@ -21,6 +21,30 @@ public class Truck extends Vehicle
     }
 
     @Override
+    public void moveForward() 
+    {
+        System.out.println("Da truck moves forward");
+    }
+
+    @Override
+    public void moveBackward() 
+    {
+        System.out.println("Da truck-kun moves backward");
+    }
+
+    @Override
+    public void moveLeft() 
+    {
+        System.out.println("baby truck-kun moves left");
+    }
+
+    @Override
+    public void moveRight() 
+    {
+        System.out.println("aw naur! truck moves right");
+    }
+
+    @Override
     public void displayInfo() 
     {
         super.displayInfo();
