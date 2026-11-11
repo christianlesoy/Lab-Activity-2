@@ -1,4 +1,4 @@
-public class Motorcycle extends Vehicle 
+public class Motorcycle extends Vehicle implements Serviceable
 {
     private String engine;
 
@@ -8,33 +8,25 @@ public class Motorcycle extends Vehicle
         this.engine = engine;
     }
 
-    public String getEngine() {
+    public String getEngine() 
+    {
         return engine;
     }
 
     @Override
-    public void moveForward() {
-        System.out.println("The motorcycle moves forward");
-    }
-
-    @Override
-    public void moveBackward() {
-        System.out.println("The motorcycle moves backward");
-    }
-
-    @Override
-    public void moveLeft() {
-        System.out.println("The motorcycle moves left");
-    }
-
-    @Override
-    public void moveRight() {
-        System.out.println("The motorcycle moves right");
+    public void move() 
+    {
+        System.out.println("The motorcycle starts running skrtskrt");
     }
 
     @Override
     public void displayInfo() {
         super.displayInfo();
         System.out.println("Engine: " + engine);
+    }
+    @Override 
+    public void service()
+    {
+        System.out.println("Check if brakes, tires and engine are good to go");
     }
 }

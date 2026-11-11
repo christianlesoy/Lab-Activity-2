@@ -1,69 +1,40 @@
 
 public class Main 
 {
-
-    // This is a single method that can accept any Vehicle subclass
-    public static void printDetails(Vehicle vehicle) 
-    {
-        vehicle.displayInfo();
-
-        System.out.println("Age: " + vehicle.calculateAge());
-        System.out.println("Vintage: " + vehicle.isVintage());
-        vehicle.moveForward();
-        vehicle.moveBackward();
-        vehicle.moveLeft();
-        vehicle.moveRight();
-    }
-
     public static void main(String[] args) 
     {
+        //creates one object of each class
+        Car car = new Car("Toyota", "Vios", 2026, 4);
+        Motorcycle motorcycle = new Motorcycle("Honda", "XRM", 2015, "Manual");
+        Truck truck = new Truck("Truck-kun", "Big one", 2022, 10);
+        Printer printer = new Printer();
 
-        System.out.println("=== 1. Parent Reference ===");
+        //Serviceable array
+        System.out.println("=== SERVICEABLE OBJECTS ===");
 
-        Vehicle vehicle = new Car("Toyota", "Vios", 2026, 4);
-        printDetails(vehicle);
-        System.out.println();
+        Serviceable[] serviceItems = {car, motorcycle, truck, printer};
 
-        // The same Vehicle variable now refers to a Motorcycle
-        vehicle = new Motorcycle("Honda", "XRM", 2015, "Manual");
-        printDetails(vehicle);
-        System.out.println();
-
-        // The same Vehicle variable now refers to a Truck
-        vehicle = new Truck("Volvo", "FH16", 2022, 10);
-        printDetails(vehicle);
-        System.out.println();
-
-
-        System.out.println("=== 2. Method Parameter ===");
-
-        Car car = new Car("Tesla", "Roadster", 2026, 2);
-        Motorcycle motor = new Motorcycle("Yamaha", "NMAX", 2026, "Automatic");
-        Truck truck = new Truck("Isuzu", "Giga", 2020, 10);
-
-        printDetails(car);
-        System.out.println();
-
-        printDetails(motor);
-        System.out.println();
-
-        printDetails(truck);
-        System.out.println();
-
-
-        System.out.println("=== 3. Polymorphic Array ===");
-
-        Vehicle[] vehicles = 
+        for (Serviceable item : serviceItems) 
         {
-            new Car("Toyota", "Corolla", 2020, 4),
-            new Motorcycle("Honda", "XRM", 2015, "Manual"),
-            new Truck("Volvo", "FH16", 2022, 10)
-        };
+            performService(item);
+        }
 
-        for (Vehicle currentVehicle : vehicles) 
+        //vehicle array
+        System.out.println("\n=== VEHICLE OBJECTS ===");
+
+        Vehicle[] vehicles = {car, motorcycle, truck};
+
+        for (Vehicle vehicle : vehicles) 
         {
-            printDetails(currentVehicle);
+            vehicle.displayInfo();
+            vehicle.move();
             System.out.println();
         }
+    }
+
+    
+    public static void performService(Serviceable item) 
+    {
+        item.service();
     }
 }

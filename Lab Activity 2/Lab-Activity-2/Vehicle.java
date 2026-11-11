@@ -42,11 +42,6 @@ public abstract class Vehicle
         return calculateAge() > 25;
     }
 
-    public abstract void moveForward();
+    public abstract void move();
 
-    public abstract void moveBackward();
-
-    public abstract void moveLeft();
-
-    public abstract void moveRight();
 }

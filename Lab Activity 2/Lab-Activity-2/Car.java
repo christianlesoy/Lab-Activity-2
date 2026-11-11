@@ -1,4 +1,4 @@
-public class Car extends Vehicle 
+public class Car extends Vehicle implements Serviceable
 {
     private int numberOfDoors;
 
@@ -22,27 +22,9 @@ public class Car extends Vehicle
     }
 
     @Override
-    public void moveForward() 
+    public void move() 
     {
         System.out.println("A flying car moves forward");
-    }
-
-    @Override
-    public void moveBackward() 
-    {
-        System.out.println("A tesla moves backward");
-    }
-
-    @Override
-    public void moveLeft() 
-    {
-        System.out.println("A honda civic moves left");
-    }
-
-    @Override
-    public void moveRight() 
-    {
-        System.out.println("A flying car moves right");
     }
 
     // Overriding the parent
@@ -51,5 +33,10 @@ public class Car extends Vehicle
     {
         super.displayInfo();
         System.out.println("Number of Doors: " + numberOfDoors);
+    }
+    @Override 
+    public void service()
+    {
+        System.out.println("Checking the cars engine, oil, tires and brakess");
     }
 }

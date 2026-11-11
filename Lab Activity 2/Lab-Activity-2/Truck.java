@@ -1,4 +1,4 @@
-public class Truck extends Vehicle 
+public class Truck extends Vehicle implements Serviceable
 {
     private int wheels;
     private String sound;
@@ -20,28 +20,11 @@ public class Truck extends Vehicle
         return sound;
     }
 
+    
     @Override
-    public void moveForward() 
-    {
-        System.out.println("Da truck moves forward");
-    }
-
-    @Override
-    public void moveBackward() 
+    public void move() 
     {
         System.out.println("Da truck-kun moves backward");
-    }
-
-    @Override
-    public void moveLeft() 
-    {
-        System.out.println("baby truck-kun moves left");
-    }
-
-    @Override
-    public void moveRight() 
-    {
-        System.out.println("aw naur! truck moves right");
     }
 
     @Override
@@ -50,5 +33,10 @@ public class Truck extends Vehicle
         super.displayInfo();
         System.out.println("Wheels: " + wheels);
         System.out.println("Horn Sound: " + sound);
+    }
+    @Override 
+    public void service()
+    {
+        System.out.println("Check if the cargo tires, oil and brakes are good to go");
     }
 }
